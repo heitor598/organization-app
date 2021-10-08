@@ -17,7 +17,7 @@ class _HomePageState extends ModularState<HomePage, HomePageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lecupon'),
+        title: Text('Organization'),
       ),
       body: Container(
         padding: EdgeInsets.only(top: 10, left: 10, right: 10),

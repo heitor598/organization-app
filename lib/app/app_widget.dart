@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     return MaterialApp(
-      title: 'Lecupon',
+      title: 'Organization',
       supportedLocales: [
         const Locale('pt', 'BR'),
       ],
