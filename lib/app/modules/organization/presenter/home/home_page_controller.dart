@@ -1,25 +1,21 @@
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:organization/app/modules/organization/domain/entities/organization.dart';
 import 'package:organization/app/modules/organization/domain/usecases/organiaztion_usecase.dart';
-import 'package:mobx/mobx.dart';
 
-part 'home_page_controller.g.dart';
-
-@Injectable()
-class HomePageController = _HomePageControllerBase with _$HomePageController;
-
-abstract class _HomePageControllerBase with Store {
+class HomePageController {
   OganizationUsecase usecase;
 
-  @observable
-  List<Organization> organizations;
+  ValueNotifier<Future<List<Organization>>> organizations;
 
-  _HomePageControllerBase(this.usecase) {
-    getAll();
+  HomePageController(this.usecase);
+
+  Future<List<Organization>> getAll() async {
+    return await Future.delayed(const Duration(seconds: 2), () {
+      return usecase.getAll();
+    });
   }
 
-  @action
-  void getAll() {
-    organizations = usecase.getAll().asObservable();
+  listOrganizationChange() {
+    organizations.value = getAll();
   }
 }
