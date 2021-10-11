@@ -11,7 +11,7 @@ class AppModule extends Module {
         Bind((i) => OrganizationDatasourceImpl()),
         Bind((i) => OrganizationRepositoryImpl((i()))),
         Bind((i) => OganizationUseImpl((i()))),
-        $HomePageController
+        Bind((i) => HomePageController((i()))),
       ];
 
   @override
